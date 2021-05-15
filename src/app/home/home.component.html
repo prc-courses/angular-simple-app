@@ -1,6 +1,8 @@
 <h1>{{ title }}</h1>
 <p>{{ body }}</p>
 
+<div class="alert"><strong>ATTENTION:</strong> {{ alert }}</div>
+
 <hr>
 
 <div>
@@ -10,3 +12,9 @@
     <button type="submit" class="btn" (click)="updateMessage(message)">Update Message</button>
   </form>
 </div>
+
+<hr>
+
+<widget-list [featured]="true"></widget-list>
+
+<small (click)="goWidgets()">All widgets</small>
