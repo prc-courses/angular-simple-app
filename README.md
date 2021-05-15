@@ -1,6 +1,6 @@
-# SimpleApp
+# SimpleApp - solutions
 
-Example app to be used on my Angular courses.
+Example app to be used on my Angular courses - solutions to the challenges.
 
 ## Updated to Angular 15
 
