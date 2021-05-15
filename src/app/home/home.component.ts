@@ -14,6 +14,7 @@ import {StateService} from '../common/state.service';
 export class HomeComponent implements OnInit {
   title: string = 'Home Page';
   body:  string = 'This is the home page body';
+  alert: string = 'This application is in Beta, use it at your own risk...';
   message: string;
 
   constructor(private _stateService: StateService, private _router: Router) { }
@@ -24,5 +25,9 @@ export class HomeComponent implements OnInit {
 
   updateMessage(m: string): void {
     this._stateService.setMessage(m);
+  }
+
+  goWidgets() {
+    this._router.navigate(['/widgets']);
   }
 }
