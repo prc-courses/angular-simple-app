@@ -19,8 +19,8 @@ export class WidgetsService {
 
   constructor(private _pricingService: PricingService) { }
 
-  setPromoCode(promo: string) {
-    if (promo !== undefined) this._promo = promo;
+  setPromoCode(promo?: string) {
+    this._promo = promo ? promo : '';
   }
 
   getPromoCode() {
@@ -36,7 +36,9 @@ export class WidgetsService {
     return widgets;
   };
 
-  getWidget(id: string): Widget {
-    return this._pricingService.applyPromoCode(this._promo, this._widgets.find(widget => widget.id === id));
+  getWidget(id: string): Widget | undefined {
+    const widget = this._widgets.find(widget => widget.id === id);
+    if (!widget) return undefined;
+    return this._pricingService.applyPromoCode(this._promo, widget);
   };
 }

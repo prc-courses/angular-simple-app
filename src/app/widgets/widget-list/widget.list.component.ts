@@ -21,7 +21,7 @@ export class WidgetListComponent {
   @Input() promo?: string = '';
   @Input() filter?: string;
 
-  widgets: Widget[];
+  widgets?: Widget[];
 
   constructor(private _widgetsService: WidgetsService) {}
 
@@ -42,7 +42,7 @@ export class WidgetListComponent {
     if (changes.promo || changes.filter) {
       this.widgets = this._widgetsService.getWidgets(this.featured);
       if (this.filter && this.filter.length > 0) {
-        this.widgets = this.widgets.filter(widget => widget.name.includes(this.filter));
+        this.widgets = this.widgets.filter(widget => widget.name.includes(this.filter!));
       }
     }
   }

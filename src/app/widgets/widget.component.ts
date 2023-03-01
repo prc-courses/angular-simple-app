@@ -25,10 +25,12 @@ export class WidgetComponent implements OnInit {
   ngOnInit() {
     this.subp = this._route.params.subscribe(params => {
       const widget = this._widgetsService.getWidget(params['id']);
-      this.id = widget.id;
-      this.name = widget.name;
-      this.description = widget.description || `This widget doesn't have a description available...`;
-      this.price = widget.price;
+      if (widget) {
+        this.id = widget.id;
+        this.name = widget.name;
+        this.description = widget.description || `This widget doesn't have a description available...`;
+        this.price = widget.price;
+      }
     });
     this.subq = this._route.queryParams.subscribe(params => {
       this.free = params['free'] === 'true';
